@@ -1,4 +1,4 @@
-name: Build
+name: Build sky130
 
 on:
   push:
