@@ -2,6 +2,7 @@ name: Build
 
 on:
   push:
+    paths: ['sky130/**']
   pull_request:
 
 jobs:
@@ -17,7 +18,7 @@ jobs:
               archs: "arm64",
             },
           ]
-        pdk-family: [sky130, gf180mcu]
+        pdk-family: [sky130]
     name: Build ${{ matrix.pdk-family }} with Ciel | ${{ matrix.os.name }} | ${{ matrix.os.archs }}
     runs-on: ${{ matrix.os.runner }}
     steps:
