@@ -4,6 +4,7 @@ on:
   push:
     paths: ['sky130/**']
   pull_request:
+    paths: ['sky130/**']
 
 jobs:
   build-and-test:

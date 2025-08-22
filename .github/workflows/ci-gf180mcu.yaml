@@ -4,6 +4,7 @@ on:
   push:
     paths: ['gf180mcu/**']
   pull_request:
+    paths: ['gf180mcu/**']
 
 jobs:
   build-and-test:
