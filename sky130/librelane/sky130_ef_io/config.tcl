@@ -68,6 +68,7 @@ set ::env(PAD_PLACE_IO_TERMINALS) "\
 "
 
 # Sealring offset
-set ::env(PAD_EDGE_SPACING) "6"
+# Sealring is added afterwards
+set ::env(PAD_EDGE_SPACING) "0"
 
 #set ::env(KLAYOUT_SEALRING_SCRIPT) "$::env(PDK_ROOT)/$::env(PDK)/libs.tech/klayout/tech/scripts/sealring.py"
