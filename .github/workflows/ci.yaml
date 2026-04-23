@@ -11,14 +11,15 @@ jobs:
         os:
           [
             {
-              name: "macOS 14",
-              family: "macOS",
-              runner: "macos-14",
-              archs: "arm64",
+              name: "macOS 15",
+              family: "darwin",
+              runner: "macos-15",
+              arch: "aarch64",
+              nix: "aarch64-darwin",
             },
           ]
         pdk-family: [sky130, gf180mcu]
-    name: Build ${{ matrix.pdk-family }} with Ciel | ${{ matrix.os.name }} | ${{ matrix.os.archs }}
+    name: Build ${{ matrix.pdk-family }} with Ciel | ${{ matrix.os.name }} | ${{ matrix.os.arch }}
     runs-on: ${{ matrix.os.runner }}
     steps:
       - name: Clear Build Space
@@ -31,16 +32,12 @@ jobs:
           done
           echo "== After =="
           df -h
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: ./.github/actions/setup_nix
         with:
-          determinate: false
-          extra-conf: |
-            access-tokens = ${{ env.GITHUB_ACCESS_TOKEN_STR }}
-            extra-substituters = https://nix-cache.fossi-foundation.org
-            extra-trusted-public-keys = nix-cache.fossi-foundation.org:3+K59iFwXqKsL7BNu6Guy0v+uTlwsxYQxjspXzqLYQs=
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Magic, Ciel, GHR
         run: |
           nix profile install github:fossi-foundation/nix-eda#{ghr,magic-vlsi} github:fossi-foundation/ciel
