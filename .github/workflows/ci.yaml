@@ -30,7 +30,7 @@ jobs:
           echo "PDK_ROOT=$PWD/root" >> $GITHUB_ENV
       - name: Build with Ciel
         run: |
-          ciel build --include-libraries all --pdk-family ${{ matrix.pdk-family }} --use-repo-at open_pdks=$PWD --jobs $(sysctl -n hw.logicalcpu) --clear-build-artifacts $(git rev-parse HEAD)
+          ciel build --include-libraries all --pdk-family ${{ matrix.pdk-family }} --use-repo-at open_pdks=$PWD --jobs $(nproc) --clear-build-artifacts $(git rev-parse HEAD)
       - name: Push if New Tag
         if: github.ref_type == 'tag'
         run: |
