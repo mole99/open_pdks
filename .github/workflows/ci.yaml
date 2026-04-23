@@ -8,30 +8,10 @@ jobs:
   build-and-test:
     strategy:
       matrix:
-        os:
-          [
-            {
-              name: "macOS 15",
-              family: "darwin",
-              runner: "macos-15",
-              arch: "aarch64",
-              nix: "aarch64-darwin",
-            },
-          ]
         pdk-family: [sky130, gf180mcu]
-    name: Build ${{ matrix.pdk-family }} with Ciel | ${{ matrix.os.name }} | ${{ matrix.os.arch }}
-    runs-on: ${{ matrix.os.runner }}
+    name: Build ${{ matrix.pdk-family }} with Ciel | (Nix/x86_64-linux)
+    runs-on: ubuntu-24.04
     steps:
-      - name: Clear Build Space
-        run: |
-          echo "== Before =="
-          df -h
-          for xcode in /Applications/Xcode*; do
-            echo "== Removing $xcode … =="
-            rm -rf $xcode
-          done
-          echo "== After =="
-          df -h
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
