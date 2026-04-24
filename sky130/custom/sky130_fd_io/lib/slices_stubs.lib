@@ -73,52 +73,168 @@ library ("slices_stubs") {
 	voltage_map("VSSIO_Q",0.000000);
 	voltage_map("VSWITCH",5.500000);
 	cell ("sky130_ef_io__connect_vcchib_vccd_and_vswitch_vddio_slice_20um") {
-			is_macro_cell : true;
-			dont_use : true;
+		is_macro_cell : true;
+		dont_use : true;
 		interface_timing : true;
 		pad_cell : true;
 		dont_touch : true;
 		area : 15000.000000;
-		pg_pin (VDDIO) {
-			voltage_name : "VDDIO";
-			pg_type : "primary_power";
+
+		/*	Power Supply Pins	*/
+
+		pg_pin (VDDA) {
+			voltage_name : VDDA ;
+			pg_type : primary_power ;
 		}
-		pg_pin (VCCD) {
-			voltage_name : "VCCD";
-			pg_type : "primary_power";
-		}
-		pg_pin (VCCHIB) {
-			voltage_name : "VCCHIB";
-			pg_type : "primary_power";
-		}
+
 		pg_pin (VSWITCH) {
-			voltage_name : "VSWITCH";
-			pg_type : "primary_power";
+			voltage_name : VSWITCH ;
+			pg_type : primary_power ;
+		}
+
+		pg_pin (VDDIO) {
+			voltage_name : VDDIO ;
+			pg_type : primary_power ;
+		}
+
+		pg_pin (VDDIO_Q) {
+			voltage_name : VDDIO_Q ;
+			pg_type : primary_power ;
+		}
+
+		pg_pin (VCCD) {
+			voltage_name : VCCD ;
+			pg_type : primary_power ;
+		}
+
+		pg_pin (VCCHIB) {
+			voltage_name : VCCHIB ;
+			pg_type : primary_power ;
+		}
+
+		/*	Ground Pins	*/
+
+		pg_pin (VSSD) {
+			voltage_name : VSSD ;
+			pg_type : primary_ground ;
+		}
+
+		pg_pin (VSSIO_Q) {
+			voltage_name : VSSIO_Q ;
+			pg_type : primary_ground ;
+		}
+
+		pg_pin (VSSA) {
+			voltage_name : VSSA ;
+			pg_type : primary_ground ;
+		}
+
+		pg_pin (VSSIO) {
+			voltage_name : VSSIO ;
+			pg_type : primary_ground ;
+		}
+
+		/*	Analog Pins	*/
+
+		pin ("AMUXBUS_A") {
+			direction : inout;
+			related_power_pin : VDDIO;
+			related_ground_pin : VSSD;
+			always_on : true;
+			signal_voltage_type : "analog";
+			capacitance : 0.070467;
+		}
+
+		pin ("AMUXBUS_B") {
+			direction : inout;
+			related_power_pin : VDDIO;
+			related_ground_pin : VSSD;
+			always_on : true;
+			signal_voltage_type : "analog";
+			capacitance : 0.070467;
 		}
 	}
 	
 	cell ("sky130_ef_io__connect_vdda_vddio_and_vssa_vssio_slice_20um") {
-			is_macro_cell : true;
-			dont_use : true;
-		interface_timing : true;
-		pad_cell : true;
-		dont_touch : true;
-		area : 15000.000000;
-		pg_pin (VDDA) {
-			voltage_name : "VDDA";
-			pg_type : "primary_power";
-		}
-		pg_pin (VDDIO) {
-			voltage_name : "VDDIO";
-			pg_type : "primary_power";
-		}
-		pg_pin (VSSA) {
-			voltage_name : "VSSA";
-			pg_type : "primary_ground";
-		}
-		pg_pin (VSSIO) {
-			voltage_name : "VSSIO";
-			pg_type : "primary_ground";
-		}
-	}
+		is_macro_cell : true;
+		dont_use : true;
+	  interface_timing : true;
+	  pad_cell : true;
+	  dont_touch : true;
+	  area : 15000.000000;
+
+	  /*	Power Supply Pins	*/
+
+	  pg_pin (VDDA) {
+		  voltage_name : VDDA ;
+		  pg_type : primary_power ;
+	  }
+
+	  pg_pin (VSWITCH) {
+		  voltage_name : VSWITCH ;
+		  pg_type : primary_power ;
+	  }
+
+	  pg_pin (VDDIO) {
+		  voltage_name : VDDIO ;
+		  pg_type : primary_power ;
+	  }
+
+	  pg_pin (VDDIO_Q) {
+		  voltage_name : VDDIO_Q ;
+		  pg_type : primary_power ;
+	  }
+
+	  pg_pin (VCCD) {
+		  voltage_name : VCCD ;
+		  pg_type : primary_power ;
+	  }
+
+	  pg_pin (VCCHIB) {
+		  voltage_name : VCCHIB ;
+		  pg_type : primary_power ;
+	  }
+
+	  /*	Ground Pins	*/
+
+	  pg_pin (VSSD) {
+		  voltage_name : VSSD ;
+		  pg_type : primary_ground ;
+	  }
+
+	  pg_pin (VSSIO_Q) {
+		  voltage_name : VSSIO_Q ;
+		  pg_type : primary_ground ;
+	  }
+
+	  pg_pin (VSSA) {
+		  voltage_name : VSSA ;
+		  pg_type : primary_ground ;
+	  }
+
+	  pg_pin (VSSIO) {
+		  voltage_name : VSSIO ;
+		  pg_type : primary_ground ;
+	  }
+
+	  /*	Analog Pins	*/
+
+	  pin ("AMUXBUS_A") {
+		  direction : inout;
+		  related_power_pin : VDDIO;
+		  related_ground_pin : VSSD;
+		  always_on : true;
+		  signal_voltage_type : "analog";
+		  capacitance : 0.070467;
+	  }
+
+	  pin ("AMUXBUS_B") {
+		  direction : inout;
+		  related_power_pin : VDDIO;
+		  related_ground_pin : VSSD;
+		  always_on : true;
+		  signal_voltage_type : "analog";
+		  capacitance : 0.070467;
+	  }
+  }
 }

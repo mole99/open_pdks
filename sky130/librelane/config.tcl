@@ -71,6 +71,7 @@ set ::env(PAD_GDS) "\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/gds/sky130_fd_io.gds\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/gds/sky130_ef_io.gds\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/gds/sky130_ef_io__connect_vcchib_vccd_and_vswitch_vddio_slice_20um.gds\
+    $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/gds/sky130_ef_io__connect_vdda_vddio_and_vssa_vssio_slice_20um.gds\
 "
 set ::env(PAD_VERILOG_MODELS) "\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/verilog/sky130_fd_io__blackbox_pp.v\
