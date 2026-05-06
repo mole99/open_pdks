@@ -32,6 +32,7 @@ dict set ::env(PAD_LIBS) "*_tt_025C_1v80" "\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__vssio_hvc_clamped_pad_tt_025C_1v80_3v30_3v30.lib \
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__gpiov2_pad_tt_tt_025C_1v80_3v30.lib \
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/slices_stubs.lib \
+    $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__analog_stubs.lib \
 "
 dict set ::env(PAD_LIBS) "*_ff_n40C_1v95" "\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__vccd_lvc_clamped_pad_ff_n40C_1v95_5v50_5v50.lib \
@@ -40,6 +41,7 @@ dict set ::env(PAD_LIBS) "*_ff_n40C_1v95" "\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__vssio_hvc_clamped_pad_ff_n40C_1v95_5v50_5v50.lib \
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__gpiov2_pad_ff_ff_n40C_1v95_5v50.lib \
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/slices_stubs.lib \
+    $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__analog_stubs.lib \
 "
 dict set ::env(PAD_LIBS) "*_ss_100C_1v60" "\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__vccd_lvc_clamped_pad_ss_100C_1v60_3v00_3v00.lib \
@@ -48,6 +50,7 @@ dict set ::env(PAD_LIBS) "*_ss_100C_1v60" "\
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__vssio_hvc_clamped_pad_ss_100C_1v60_3v00_3v00.lib \
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__gpiov2_pad_ss_ss_100C_1v60_3v00.lib \
     $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/slices_stubs.lib \
+    $::env(PDK_ROOT)/$::env(PDK)/libs.ref/sky130_fd_io/lib/sky130_ef_io__analog_stubs.lib \
 "
 
 # Pad bondpad information (if needed)
@@ -64,6 +67,11 @@ set ::env(PAD_PLACE_IO_TERMINALS) "\
     sky130_ef_io__vssd_lvc_clamped_pad/VSSD_PAD\
     sky130_ef_io__vddio_hvc_clamped_pad/VDDIO_PAD\
     sky130_ef_io__vssio_hvc_clamped_pad/VSSIO_PAD\
+    sky130_ef_io__analog_esd_pad/P_PAD\
+    sky130_ef_io__analog_minesd_pad/P_PAD\
+    sky130_ef_io__analog_minesd_pad_short/P_PAD\
+    sky130_ef_io__analog_noesd_pad/P_PAD\
+    sky130_ef_io__analog_pad/P_PAD\
 "
 
 # Sealring is added afterwards
